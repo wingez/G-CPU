@@ -1,0 +1,39 @@
+{
+  "ram": {
+    "clock": {
+      "pin": 20,
+      "activestate": true
+    },
+    "data": {
+      "pin": 21,
+      "activestate": true
+    },
+    "latch": {
+      "pin": 16,
+      "activestate": true
+    },
+    "write": {
+      "pin": 26,
+      "activestate": true
+    }
+  },
+
+  "instructionrom": {
+    "clock": {
+      "pin": 20,
+      "activestate": true
+    },
+    "data": {
+      "pin": 21,
+      "activestate": true
+    },
+    "latch": {
+      "pin": 16,
+      "activestate": true
+    },
+    "write": {
+      "pin": 26,
+      "activestate": false
+    }
+  }
+}
