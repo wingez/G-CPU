@@ -1,13 +1,13 @@
+ 
+from IO.protocols import setuppins, shiftoutbyte, LSBfirst, pulse
+import IO.pins
 
-from .protocols import setuppins, shiftoutbyte, LSBfirst, pulse
-import pins
 
-
-rampins = pins.loadpins()['ram']
+rampins = IO.pins.getPins('ram')
 setuppins(rampins)
 
 
-def write(address,value):
+def uploadbyte(address,value):
     shiftoutbyte(address,LSBfirst,rampins)
     shiftoutbyte(value,LSBfirst,rampins)
     pulse('latch',rampins)

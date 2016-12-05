@@ -15,14 +15,14 @@ LSBfirst = 1
 
 
 def setpin(pin,state):
-    io.output(pin['pin'],not (bool(state) ^ pin['activestate']))
+    io.output(pin.pinnumber, not (bool(state) ^ pin.activestate))
     
 def setuppins(pins):
     io.setmode(io.BCM)
     io.setwarnings(False)
     
     for pin in pins.values():
-        io.setup(pin['pin'],io.OUT)
+        io.setup(pin.pinnumber,io.OUT)
         setpin(pin,0)
 
 
@@ -49,8 +49,8 @@ def shiftoutlist(values,mode,pins):
     clock = pins['clock']
     data = pins['data']
 
-    io.output(clock['pin'], not clock['activestate'])
-    
+    setpin(clock,0)
+
     for bit in bits:
         setpin(data,bit)
         time.sleep(0.001)
