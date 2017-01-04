@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Wires>
+    <Wire>
+      <Name>test</Name>
+      <Chip>0</Chip>
+      <Index>0</Index>
+      <ActiveState>true</ActiveState>
+    </Wire>
+    <Wire>
+      <Name>continue</Name>
+      <Chip>0</Chip>
+      <Index>1</Index>
+      <ActiveState>true</ActiveState>
+    </Wire>
+    <Wire>
+      <Name>none</Name>
+      <Chip>0</Chip>
+      <Index>2</Index>
+      <ActiveState>true</ActiveState>
+    </Wire>
+  </Wires>
+
+  <Signals>
+
+    <Signal>
+      <Name>test</Name>
+      <Wires>
+        <Wire name="test" state="true"/>
+      </Wires>
+    </Signal>
+
+    <Signal>
+      <Name>continue</Name>
+      <Wires>
+        <Wire name="continue" state="true"/>
+        <Wire name="none" state="true"/>
+      </Wires>
+    </Signal>
+
+  </Signals>
+
+  <Macros>
+    <Macro>
+      <Name>fetch</Name>
+
+      <Desc>fetches the next instruction from ram</Desc>
+
+      <Stages>
+        <Stage>
+          <Signal name="test"/>
+        </Stage>
+        <Stage>
+          <Signal name="test"/>
+          <Signal name="continue"/>
+        </Stage>
+      </Stages>
+    </Macro>
+
+    <Macro>
+      <Name>test</Name>
+      <Desc>Delete me plz</Desc>
+
+      <Stages>
+        <Stage>
+          <Signal name="continue"/>
+          <Signal name="test"/>
+        </Stage>
+      </Stages>
+    </Macro>
+
+  </Macros>
+
+  <Instructions>
+    <Instruction>
+      <Name>Noop</Name>
+      <Desc>Does nothing</Desc>
+      <Index>0</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="continue"/>
+        </Stage>
+      </Stages>
+
+
+    </Instruction>
+
+
+
+  </Instructions>
+
+
+</Root>
