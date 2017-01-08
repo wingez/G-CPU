@@ -2,41 +2,249 @@
 <Root>
   <Wires>
     <Wire>
-      <Name>test</Name>
+      <Name>continue</Name>
+      <Chip>0</Chip>
+      <Index>7</Index>
+      <ActiveState>true</ActiveState>
+    </Wire>
+    <Wire>
+      <Name>continueifnovf</Name>
+      <Chip>0</Chip>
+      <Index>6</Index>
+      <ActiveState>true</ActiveState>
+    </Wire>
+
+
+    <Wire>
+      <Name>output</Name>
+      <Chip>0</Chip>
+      <Index>4</Index>
+      <ActiveState>false</ActiveState>
+    </Wire>
+    <Wire>
+      <Name>alusub</Name>
       <Chip>0</Chip>
       <Index>0</Index>
       <ActiveState>true</ActiveState>
     </Wire>
+
     <Wire>
-      <Name>continue</Name>
-      <Chip>0</Chip>
+      <Name>emuxa</Name>
+      <Chip>1</Chip>
+      <Index>0</Index>
+      <ActiveState>true</ActiveState>
+    </Wire>
+    <Wire>
+      <Name>emuxb</Name>
+      <Chip>1</Chip>
       <Index>1</Index>
       <ActiveState>true</ActiveState>
     </Wire>
     <Wire>
-      <Name>none</Name>
-      <Chip>0</Chip>
+      <Name>emuxc</Name>
+      <Chip>1</Chip>
       <Index>2</Index>
       <ActiveState>true</ActiveState>
     </Wire>
+
+    <Wire>
+      <Name>lmuxa</Name>
+      <Chip>1</Chip>
+      <Index>3</Index>
+      <ActiveState>true</ActiveState>
+    </Wire>
+    <Wire>
+      <Name>lmuxb</Name>
+      <Chip>1</Chip>
+      <Index>4</Index>
+      <ActiveState>true</ActiveState>
+    </Wire>
+    <Wire>
+      <Name>lmuxc</Name>
+      <Chip>1</Chip>
+      <Index>5</Index>
+      <ActiveState>true</ActiveState>
+    </Wire>
+
+    <Wire>
+      <Name>halt</Name>
+      <Chip>1</Chip>
+      <Index>6</Index>
+      <ActiveState>false</ActiveState>
+    </Wire>
+    <Wire>
+      <Name>pcc</Name>
+      <Chip>1</Chip>
+      <Index>7</Index>
+      <ActiveState>true</ActiveState>
+    </Wire>
+
   </Wires>
 
   <Signals>
 
     <Signal>
-      <Name>test</Name>
+      <Name>Halt</Name>
       <Wires>
-        <Wire name="test" state="true"/>
+        <Wire name="halt" state="true"/>
+      </Wires>
+    </Signal>
+    <Signal>
+      <Name>Lout</Name>
+      <Wires>
+        <Wire name="output" state="true"/>
       </Wires>
     </Signal>
 
     <Signal>
-      <Name>continue</Name>
+      <Name>Aluadd</Name>
       <Wires>
-        <Wire name="continue" state="true"/>
-        <Wire name="none" state="true"/>
+        <Wire name="alusub" state="false"/>
       </Wires>
     </Signal>
+    <Signal>
+      <Name>Alusub</Name>
+      <Wires>
+        <Wire name="alusub" state="true"/>
+      </Wires>
+    </Signal>
+
+
+
+
+    <Signal>
+      <Name>Ea</Name>
+      <Wires>
+        <Wire name="emuxc" state="false"/>
+        <Wire name="emuxb" state="false"/>
+        <Wire name="emuxa" state="true"/>
+      </Wires>
+    </Signal>
+    <Signal>
+      <Name>Ealu</Name>
+      <Wires>
+        <Wire name="emuxc" state="false"/>
+        <Wire name="emuxb" state="true"/>
+        <Wire name="emuxa" state="false"/>
+      </Wires>
+    </Signal>
+    <Signal>
+      <Name>Eb</Name>
+      <Wires>
+        <Wire name="emuxc" state="false"/>
+        <Wire name="emuxb" state="true"/>
+        <Wire name="emuxa" state="true"/>
+      </Wires>
+    </Signal>
+    <Signal>
+      <Name>Ec</Name>
+      <Wires>
+        <Wire name="emuxc" state="true"/>
+        <Wire name="emuxb" state="false"/>
+        <Wire name="emuxa" state="false"/>
+      </Wires>
+    </Signal>
+
+    <Signal>
+      <Name>Epc</Name>
+      <Wires>
+        <Wire name="emuxc" state="true"/>
+        <Wire name="emuxb" state="false"/>
+        <Wire name="emuxa" state="true"/>
+      </Wires>
+    </Signal>
+    <Signal>
+      <Name>Eram</Name>
+      <Wires>
+        <Wire name="emuxc" state="true"/>
+        <Wire name="emuxb" state="true"/>
+        <Wire name="emuxa" state="false"/>
+      </Wires>
+    </Signal>
+
+    <Signal>
+      <Name>La</Name>
+      <Wires>
+        <Wire name="lmuxc" state="false"/>
+        <Wire name="lmuxb" state="false"/>
+        <Wire name="lmuxa" state="true"/>
+      </Wires>
+    </Signal>
+    <Signal>
+      <Name>Lt</Name>
+      <Wires>
+        <Wire name="lmuxc" state="false"/>
+        <Wire name="lmuxb" state="true"/>
+        <Wire name="lmuxa" state="false"/>
+      </Wires>
+    </Signal>
+    <Signal>
+      <Name>Lb</Name>
+      <Wires>
+        <Wire name="lmuxc" state="false"/>
+        <Wire name="lmuxb" state="true"/>
+        <Wire name="lmuxa" state="true"/>
+      </Wires>
+    </Signal>
+    <Signal>
+      <Name>Lc</Name>
+      <Wires>
+        <Wire name="lmuxc" state="true"/>
+        <Wire name="lmuxb" state="false"/>
+        <Wire name="lmuxa" state="false"/>
+      </Wires>
+    </Signal>
+    <Signal>
+      <Name>Lpc</Name>
+      <Wires>
+        <Wire name="lmuxc" state="true"/>
+        <Wire name="lmuxb" state="false"/>
+        <Wire name="lmuxa" state="true"/>
+      </Wires>
+    </Signal>
+    <Signal>
+      <Name>Lmar</Name>
+      <Wires>
+        <Wire name="lmuxc" state="true"/>
+        <Wire name="lmuxb" state="true"/>
+        <Wire name="lmuxa" state="false"/>
+      </Wires>
+    </Signal>
+    <Signal>
+      <Name>Linstr</Name>
+      <Wires>
+        <Wire name="lmuxc" state="true"/>
+        <Wire name="lmuxb" state="true"/>
+        <Wire name="lmuxa" state="true"/>
+      </Wires>
+    </Signal>
+
+
+
+
+
+    <Signal>
+      <Name>Pccount</Name>
+      <Wires>
+        <Wire name="pcc" state="true"/>
+      </Wires>
+    </Signal>
+
+    <Signal>
+      <Name>Continue</Name>
+      <Wires>
+        <Wire name="continue" state="true"/>
+      </Wires>
+    </Signal>
+
+    <Signal>
+      <Name>Continueifnovf</Name>
+      <Wires>
+        <Wire name="continueifnovf" state="true"/>
+      </Wires>
+    </Signal>
+
+
 
   </Signals>
 
@@ -44,47 +252,309 @@
     <Macro>
       <Name>fetch</Name>
 
-      <Desc>fetches the next instruction from ram</Desc>
+      <Desc>Fetches the next instruction</Desc>
 
       <Stages>
         <Stage>
-          <Signal name="test"/>
+          <Signal name="Epc"/>
+          <Signal name="Lmar"/>
         </Stage>
         <Stage>
-          <Signal name="test"/>
-          <Signal name="continue"/>
+          <Signal name="Pccount"/>
+        </Stage>
+        <Stage>
+          <Signal name="Eram"/>
+          <Signal name="Linstr"/>
         </Stage>
       </Stages>
     </Macro>
 
-    <Macro>
-      <Name>test</Name>
-      <Desc>Delete me plz</Desc>
-
-      <Stages>
-        <Stage>
-          <Signal name="continue"/>
-          <Signal name="test"/>
-        </Stage>
-      </Stages>
-    </Macro>
 
   </Macros>
 
   <Instructions>
     <Instruction>
-      <Name>Noop</Name>
-      <Desc>Does nothing</Desc>
+      <Name>Halt</Name>
+      <Desc>Stops the cpu</Desc>
       <Index>0</Index>
 
       <Stages>
         <Macro name="fetch"/>
         <Stage>
-          <Signal name="continue"/>
+          <Signal name="Halt"/>
         </Stage>
       </Stages>
+    </Instruction>
+
+    <Instruction>
+      <Name>LoadA</Name>
+      <Desc>Load value into accumulator</Desc>
+      <Index>1</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="Epc"/>
+          <Signal name="Lmar"/>
+        </Stage>
+        <Stage>
+          <Signal name="Eram"/>
+          <Signal name="La"/>
+          <Signal name="Pccount"/>
+        </Stage>
+      </Stages>
+    </Instruction>
+
+    <Instruction>
+      <Name>LoadB</Name>
+      <Desc>Load value into B-register</Desc>
+      <Index>2</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="Epc"/>
+          <Signal name="Lmar"/>
+        </Stage>
+        <Stage>
+          <Signal name="Eram"/>
+          <Signal name="Lb"/>
+          <Signal name="Pccount"/>
+        </Stage>
+      </Stages>
+    </Instruction>
+
+    <Instruction>
+      <Name>MoveBA</Name>
+      <Desc>Move contents of B register to accumulator</Desc>
+      <Index>3</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="Eb"/>
+          <Signal name="La"/>
+        </Stage>
+      </Stages>
+    </Instruction>
+
+    <Instruction>
+      <Name>MoveCA</Name>
+      <Desc>Move contents of C register to accumulator</Desc>
+      <Index>4</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="Ec"/>
+          <Signal name="La"/>
+        </Stage>
+      </Stages>
+    </Instruction>
+
+    <Instruction>
+      <Name>MoveBC</Name>
+      <Desc>Move B to C register</Desc>
+      <Index>5</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="Eb"/>
+          <Signal name="Lc"/>
+        </Stage>
+      </Stages>
+    </Instruction>
+
+    <Instruction>
+      <Name>MoveAB</Name>
+      <Desc>Move accumulator to B register</Desc>
+      <Index>6</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="Ea"/>
+          <Signal name="Lb"/>
+        </Stage>
+      </Stages>
+    </Instruction>
+
+    <Instruction>
+      <Name>MoveAC</Name>
+      <Desc>Move accumulator to C register</Desc>
+      <Index>7</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="Ea"/>
+          <Signal name="Lc"/>
+        </Stage>
+      </Stages>
+    </Instruction>
+
+    <Instruction>
+      <Name>MoveCB</Name>
+      <Desc>Move C to B register</Desc>
+      <Index>8</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="Ec"/>
+          <Signal name="Lb"/>
+        </Stage>
+      </Stages>
+    </Instruction>
 
 
+    <Instruction>
+      <Name>AddB</Name>
+      <Desc>Adds contents of the B register from the accumulator</Desc>
+      <Index>9</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="Eb"/>
+          <Signal name="Lt"/>
+        </Stage>
+        <Stage>
+          <Signal name="Aluadd"/>
+          <Signal name="Ealu"/>
+          <Signal name="La"/>
+        </Stage>
+      </Stages>
+    </Instruction>
+
+    <Instruction>
+      <Name>SubB</Name>
+      <Desc>Subtracts content of the B register from the accumulator</Desc>
+      <Index>10</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="Eb"/>
+          <Signal name="Lt"/>
+        </Stage>
+        <Stage>
+          <Signal name="Alusub"/>
+          <Signal name="Ealu"/>
+          <Signal name="La"/>
+        </Stage>
+      </Stages>
+    </Instruction>
+
+
+    <Instruction>
+      <Name>Sub</Name>
+      <Desc>Subtract immediate to the accumulator</Desc>
+      <Index>11</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="Epc"/>
+          <Signal name="Lmar"/>
+        </Stage>
+        <Stage>
+          <Signal name="Eram"/>
+          <Signal name="Lt"/>
+          <Signal name="Pccount"/>
+        </Stage>
+        <Stage>
+          <Signal name="Alusub"/>
+          <Signal name="Ealu"/>
+          <Signal name="La"/>
+        </Stage>
+      </Stages>
+    </Instruction>
+
+    <Instruction>
+      <Name>Add</Name>
+      <Desc>Adds immediate to the accumulator</Desc>
+      <Index>12</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="Epc"/>
+          <Signal name="Lmar"/>
+        </Stage>
+        <Stage>
+          <Signal name="Eram"/>
+          <Signal name="Lt"/>
+          <Signal name="Pccount"/>
+        </Stage>
+        <Stage>
+          <Signal name="Aluadd"/>
+          <Signal name="Ealu"/>
+          <Signal name="La"/>
+        </Stage>
+      </Stages>
+    </Instruction>
+
+
+    <Instruction>
+      <Name>Print</Name>
+      <Desc>Moves accumulator to output register</Desc>
+      <Index>13</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="Ea"/>
+          <Signal name="Lout"/>
+        </Stage>
+      </Stages>
+    </Instruction>
+
+    <Instruction>
+      <Name>Jump</Name>
+      <Desc>Jump</Desc>
+
+      <Index>14</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="Epc"/>
+          <Signal name="Lmar"/>
+        </Stage>
+        <Stage>
+          <Signal name="Eram"/>
+          <Signal name="Lpc"/>
+        </Stage>
+
+
+      </Stages>
+    </Instruction>
+
+    <Instruction>
+      <Name>JumpOVF</Name>
+      <Desc>Jumps to target line if overflow</Desc>
+
+      <Index>15</Index>
+
+      <Stages>
+        <Macro name="fetch"/>
+        <Stage>
+          <Signal name="Epc"/>
+          <Signal name="Lmar"/>
+        </Stage>
+        <Stage>
+          <Signal name="Continueifnovf"/>
+          <Signal name="Pccount"/>
+        </Stage>
+        <Stage>
+          <Signal name="Eram"/>
+          <Signal name="Lpc"/>
+        </Stage>
+
+
+      </Stages>
     </Instruction>
 
 

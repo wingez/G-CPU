@@ -47,25 +47,29 @@ namespace Core.ControlROM
 
             foreach (var instrinfo in db.Instructions)
             {
-                ControlRomInstruction instr = new ControlRomInstruction(instrinfo.Name, instrinfo.Stages.Count, chips, instrinfo.Index);
+                ControlRomInstruction instr = new ControlRomInstruction(instrinfo.Name, 6, chips, instrinfo.Index);
 
-                for (int stage = 0; stage < instrinfo.Stages.Count; stage++)
+                for (int stage = 0; stage < 6; stage++)
                 {
                     for (int chip = 0; chip < chips; chip++)
                         instr[stage, chip] = defaults[chip];
 
-                    InstructionStage instrstage = instrinfo.Stages[stage];
-
-                    foreach (var signal in instrstage.Signals)
+                    if (stage < instrinfo.Stages.Count)
                     {
-                        foreach (var wirestate in signal.WireStates)
+                        InstructionStage instrstage = instrinfo.Stages[stage];
+
+                        foreach (var signal in instrstage.Signals)
                         {
-                            if (wirestate.State == true)
+                            foreach (var wirestate in signal.WireStates)
                             {
-                                instr[stage, wirestate.Wire.Chip] ^= (byte)(1 << wirestate.Wire.Index);
+                                if (wirestate.State == true)
+                                {
+                                    instr[stage, wirestate.Wire.Chip] ^= (byte)(1 << wirestate.Wire.Index);
+                                }
                             }
                         }
                     }
+
                 }
                 instructions.Add(instr);
             }

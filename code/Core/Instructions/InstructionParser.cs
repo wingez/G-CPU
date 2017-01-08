@@ -202,7 +202,7 @@ namespace Core.Instructions
                     else if (reader.Name == "Stage")
                     {
                         instruction.Stages.Add(parseStage(reader));
-                        reader.Read();
+                        //reader.Read();
                     }
                     else
                     {
@@ -211,7 +211,8 @@ namespace Core.Instructions
                 }
                 db.Instructions.Add(instruction);
 
-                reader.ReadEndElement();
+                reader.Read();
+                reader.Read();
             } while (reader.ReadToNextSibling("Instruction"));
 
         }

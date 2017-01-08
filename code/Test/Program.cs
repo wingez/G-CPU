@@ -21,12 +21,16 @@ namespace Test
             ControlRomCreator rom = new ControlRomCreator();
             rom.Create();
 
-            var sw = new StreamWriter(Console.OpenStandardOutput());
+            //var sw = new StreamWriter(Console.OpenStandardOutput());
 
-            Console.SetOut(sw);
-            sw.AutoFlush = true;
-            Console.WriteLine("hello");
-            Console.WriteLine();
+            var sw = new StreamWriter(@"C:\Users\Gustav\Projects\G-CPU\code\Upload\rom.g");
+
+            //Console.SetOut(sw);
+            //sw.AutoFlush = true;
+            //Console.WriteLine("hello");
+            //Console.WriteLine();
+
+
             rom.Write(sw);
 
             Console.ReadLine();
